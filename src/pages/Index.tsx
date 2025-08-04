@@ -19,8 +19,8 @@ const Index = () => {
       }`}>
         {/* Background Effects */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crimson-glow opacity-5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-crimson-glow opacity-5 rounded-full blur-3xl animate-pulse animation-delay-1000" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crimson opacity-5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-crimson opacity-5 rounded-full blur-3xl animate-pulse animation-delay-1000" />
         </div>
 
         {/* Main Content */}
@@ -34,7 +34,7 @@ const Index = () => {
           {[...Array(15)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-crimson-glow opacity-20 rounded-full animate-float"
+              className="absolute w-2 h-2 bg-crimson opacity-20 rounded-full animate-float"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,

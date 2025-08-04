@@ -60,9 +60,8 @@ const MusicPlayer = () => {
 
   return (
     <div className="music-player rounded-2xl p-6 mt-8 relative overflow-hidden glass-card">
-      {/* Background Glow */}
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-crimson opacity-90" />
-      <div className="absolute inset-0 bg-gradient-glow opacity-10 animate-glow-pulse" />
       
       <div className="relative z-10">
         {/* Track Info */}

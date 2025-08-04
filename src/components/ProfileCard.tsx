@@ -12,8 +12,6 @@ const ProfileCard = () => {
     <div className={`glass-card rounded-3xl p-8 max-w-md w-full text-center relative overflow-hidden transition-all duration-1000 ${
       isLoaded ? 'animate-fade-in opacity-100' : 'opacity-0'
     }`}>
-      {/* Background Glow Effect */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-20 animate-glow-pulse pointer-events-none" />
       
       {/* Profile Avatar */}
       <div className="relative mb-6">
@@ -23,7 +21,6 @@ const ProfileCard = () => {
             alt="nahfolix avatar"
             className="w-full h-full rounded-full object-cover border-4 border-crimson shadow-crimson animate-float"
           />
-          <div className="absolute inset-0 rounded-full bg-gradient-crimson opacity-20 animate-pulse-glow" />
         </div>
       </div>
 
@@ -43,12 +40,12 @@ const ProfileCard = () => {
       </p>
 
       {/* Social Links */}
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
+      <div className="flex flex-wrap justify-center gap-4">
         <a
           href="https://discordapp.com/users/938124385817092096"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:shadow-glow hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson-glow focus:ring-opacity-50"
+          className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson focus:ring-opacity-50"
         >
           Discord
         </a>
@@ -56,7 +53,7 @@ const ProfileCard = () => {
           href="https://github.com/wtfplayer"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:shadow-glow hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson-glow focus:ring-opacity-50"
+          className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson focus:ring-opacity-50"
         >
           GitHub
         </a>
@@ -64,15 +61,10 @@ const ProfileCard = () => {
           href="https://www.roblox.com/users/3784100047/profile"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:shadow-glow hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson-glow focus:ring-opacity-50"
+          className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson focus:ring-opacity-50"
         >
           Roblox
         </a>
-      </div>
-
-      {/* Footer */}
-      <div className="text-muted-foreground text-sm opacity-70">
-        Made with ❤️ by folix
       </div>
     </div>
   );

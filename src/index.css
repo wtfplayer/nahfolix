@@ -89,11 +89,6 @@
     box-shadow: var(--shadow-glass);
   }
   
-  /* Crimson Glow Effect */
-  .crimson-glow {
-    box-shadow: var(--shadow-crimson), var(--shadow-glow);
-  }
-  
   /* Hover Scale Animation */
   .hover-scale {
     transition: var(--transition-smooth);
@@ -113,20 +108,6 @@
     50% { transform: translateY(-10px); }
   }
   
-  /* Pulse Glow Animation */
-  .pulse-glow {
-    animation: pulse-glow 2s infinite;
-  }
-  
-  @keyframes pulse-glow {
-    0%, 100% { 
-      box-shadow: 0 0 20px hsl(0 100% 50% / 0.3);
-    }
-    50% { 
-      box-shadow: 0 0 40px hsl(0 100% 50% / 0.6);
-    }
-  }
-  
   /* Gradient Text */
   .gradient-text {
     background: var(--gradient-crimson);
@@ -140,15 +121,6 @@
     background: var(--gradient-crimson);
     position: relative;
     overflow: hidden;
-  }
-  
-  .music-player::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--gradient-glow);
-    opacity: 0.1;
-    pointer-events: none;
   }
   
   /* Custom Scrollbar */
