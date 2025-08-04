@@ -2,95 +2,171 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Sexy Dark Portfolio Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Core Dark Theme */
+    --background: 222 47% 7%;
+    --foreground: 0 0% 95%;
+    
+    /* Card System */
+    --card: 225 39% 12%;
+    --card-foreground: 0 0% 95%;
+    --card-glass: 225 39% 12%;
+    
+    /* Crimson Brand Colors */
+    --crimson: 0 100% 27%;
+    --crimson-light: 0 100% 35%;
+    --crimson-dark: 0 100% 20%;
+    --crimson-glow: 0 100% 50%;
+    
+    /* Interactive Elements */
+    --primary: 0 100% 27%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 0 100% 35%;
+    
+    /* Accent Colors */
+    --accent: 0 100% 27%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 0 100% 50%;
+    
+    /* Muted & Secondary */
+    --muted: 225 25% 20%;
+    --muted-foreground: 0 0% 70%;
+    --secondary: 225 25% 15%;
+    --secondary-foreground: 0 0% 85%;
+    
+    /* Gradients */
+    --gradient-crimson: linear-gradient(135deg, hsl(0 100% 27%), hsl(0 100% 35%));
+    --gradient-dark: linear-gradient(180deg, hsl(225 39% 12%), hsl(225 39% 8%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(0 100% 50% / 0.3), transparent 70%);
+    
+    /* Shadows & Effects */
+    --shadow-crimson: 0 10px 30px hsl(0 100% 27% / 0.5);
+    --shadow-glow: 0 0 40px hsl(0 100% 50% / 0.4);
+    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.4);
+    
+    /* Glass Morphism */
+    --glass-bg: hsl(225 39% 12% / 0.8);
+    --glass-border: hsl(0 0% 100% / 0.1);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --border: 225 25% 20%;
+    --input: 225 25% 15%;
+    --ring: 0 100% 50%;
+    --radius: 1rem;
   }
+}
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, hsl(222 47% 7%), hsl(222 47% 4%));
+    min-height: 100vh;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer components {
+  /* Glass Morphism Card */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  /* Crimson Glow Effect */
+  .crimson-glow {
+    box-shadow: var(--shadow-crimson), var(--shadow-glow);
+  }
+  
+  /* Hover Scale Animation */
+  .hover-scale {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Floating Animation */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Pulse Glow Animation */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(0 100% 50% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(0 100% 50% / 0.6);
+    }
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-crimson);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Music Player Styles */
+  .music-player {
+    background: var(--gradient-crimson);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .music-player::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-glow);
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(225 25% 15%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-crimson);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(0 100% 35%);
   }
 }
 
