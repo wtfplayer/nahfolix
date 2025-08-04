@@ -40,7 +40,7 @@ const ProfileCard = () => {
       </p>
 
       {/* Social Links */}
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-4 mb-8">
         <a
           href="https://discordapp.com/users/938124385817092096"
           target="_blank"
@@ -65,6 +65,11 @@ const ProfileCard = () => {
         >
           Roblox
         </a>
+      </div>
+
+      {/* Footer */}
+      <div className="text-muted-foreground text-sm opacity-70">
+        Made with ❤️ by folix
       </div>
     </div>
   );
