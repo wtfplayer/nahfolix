@@ -66,8 +66,8 @@ const MusicPlayer = () => {
       <div className="relative z-10">
         {/* Track Info */}
         <div className="mb-4">
-          <h2 className="text-xl font-bold text-white mb-1">Too Many Nights</h2>
-          <h3 className="text-white/80 text-sm">Metro Boomin</h3>
+          <h2 className="text-xl font-bold text-white mb-1">Hello?</h2>
+          <h3 className="text-white/80 text-sm">Clairo</h3>
         </div>
 
         {/* Controls */}
