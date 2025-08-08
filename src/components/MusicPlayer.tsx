@@ -2,7 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import { Play, Pause } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 
-const MusicPlayer = () => {
+interface MusicPlayerProps {
+  shouldAutoPlay?: boolean;
+}
+
+const MusicPlayer = ({ shouldAutoPlay = false }: MusicPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -24,15 +28,6 @@ const MusicPlayer = () => {
     audio.addEventListener('play', handlePlay);
     audio.addEventListener('pause', handlePause);
 
-    // Attempt autoplay on mount
-    audio.play().catch(() => {
-      toast({
-        title: 'Autoplay blocked',
-        description: 'Tap the play button to start the music.',
-        duration: 5000,
-      });
-    });
-
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
@@ -41,6 +36,19 @@ const MusicPlayer = () => {
       audio.removeEventListener('pause', handlePause);
     };
   }, []);
+
+  // Separate effect for autoplay trigger
+  useEffect(() => {
+    if (shouldAutoPlay && audioRef.current) {
+      audioRef.current.play().catch(() => {
+        toast({
+          title: 'Autoplay blocked',
+          description: 'Tap the play button to start the music.',
+          duration: 5000,
+        });
+      });
+    }
+  }, [shouldAutoPlay]);
 
   const togglePlayPause = () => {
     const audio = audioRef.current;
@@ -129,7 +137,6 @@ const MusicPlayer = () => {
           ref={audioRef}
           src="/song.mp3"
           preload="metadata"
-          autoPlay
           playsInline
           className="hidden"
         />

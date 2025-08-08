@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import LoadingScreen from '@/components/LoadingScreen';
 import ProfileCard from '@/components/ProfileCard';
@@ -20,7 +21,7 @@ const Index = () => {
         {/* Main Content */}
         <div className="relative z-10 w-full max-w-md">
           <ProfileCard />
-          <MusicPlayer />
+          <MusicPlayer shouldAutoPlay={!isLoading} />
         </div>
 
         {/* Floating Elements */}
