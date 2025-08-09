@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import StatusBadge from '@/components/StatusBadge';
 
 const ProfileCard = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,6 +33,11 @@ const ProfileCard = () => {
         <div className="text-crimson-light font-mono text-sm tracking-widest opacity-80">
           #0000
         </div>
+      </div>
+
+      {/* Live Status */}
+      <div className="mb-6">
+        <StatusBadge userId="938124385817092096" align="center" />
       </div>
 
       {/* Bio */}
