@@ -59,6 +59,12 @@
     --input: 225 25% 15%;
     --ring: 0 100% 50%;
     --radius: 1rem;
+
+    /* Presence status semantic tokens */
+    --status-online: 142 71% 45%; /* green */
+    --status-idle: 45 100% 50%;   /* yellow */
+    --status-dnd: 0 84% 60%;      /* red */
+    --status-offline: 215 16% 47%;/* gray */
   }
 }
 
@@ -150,4 +156,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Status dot utility classes using semantic tokens */
+@layer components {
+  .status-dot--online { background-color: hsl(var(--status-online)); }
+  .status-dot--idle { background-color: hsl(var(--status-idle)); }
+  .status-dot--dnd { background-color: hsl(var(--status-dnd)); }
+  .status-dot--offline { background-color: hsl(var(--status-offline)); }
 }
