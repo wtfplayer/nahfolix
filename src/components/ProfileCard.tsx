@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import StatusBadge from '@/components/StatusBadge';
+import discordIcon from '@/assets/icons/discord.svg';
+import githubIcon from '@/assets/icons/github.svg';
+import robloxIcon from '@/assets/icons/roblox.svg';
 
 const ProfileCard = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -51,25 +54,28 @@ const ProfileCard = () => {
           href="https://discordapp.com/users/938124385817092096"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Open Discord profile"
           className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson focus:ring-opacity-50"
         >
-          Discord
+          <img src={discordIcon} alt="" aria-hidden="true" className="h-5 w-5 inline-block" />
         </a>
         <a
           href="https://github.com/wtfplayer"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Open GitHub profile"
           className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson focus:ring-opacity-50"
         >
-          GitHub
+          <img src={githubIcon} alt="" aria-hidden="true" className="h-5 w-5 inline-block" />
         </a>
         <a
           href="https://www.roblox.com/users/3784100047/profile"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Open Roblox profile"
           className="px-6 py-3 bg-gradient-crimson text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 hover:bg-primary-hover focus:outline-none focus:ring-4 focus:ring-crimson focus:ring-opacity-50"
         >
-          Roblox
+          <img src={robloxIcon} alt="" aria-hidden="true" className="h-5 w-5 inline-block" />
         </a>
       </div>
 
