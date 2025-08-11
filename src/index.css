@@ -7,13 +7,13 @@
 @layer base {
   :root {
     /* Core Dark Theme */
-    --background: 222 47% 7%;
+    --background: 0 0% 3%;
     --foreground: 0 0% 95%;
     
     /* Card System */
-    --card: 225 39% 12%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 95%;
-    --card-glass: 225 39% 12%;
+    --card-glass: 0 0% 6%;
     
     /* Crimson Brand Colors */
     --crimson: 0 100% 27%;
@@ -32,14 +32,14 @@
     --accent-glow: 0 100% 50%;
     
     /* Muted & Secondary */
-    --muted: 225 25% 20%;
+    --muted: 0 0% 14%;
     --muted-foreground: 0 0% 70%;
-    --secondary: 225 25% 15%;
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 85%;
     
     /* Gradients */
     --gradient-crimson: linear-gradient(135deg, hsl(0 100% 27%), hsl(0 100% 35%));
-    --gradient-dark: linear-gradient(180deg, hsl(225 39% 12%), hsl(225 39% 8%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 4%));
     --gradient-glow: radial-gradient(ellipse at center, hsl(0 100% 50% / 0.3), transparent 70%);
     
     /* Shadows & Effects */
@@ -48,15 +48,15 @@
     --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.4);
     
     /* Glass Morphism */
-    --glass-bg: hsl(225 39% 12% / 0.8);
+    --glass-bg: hsl(0 0% 6% / 0.8);
     --glass-border: hsl(0 0% 100% / 0.1);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
-    --border: 225 25% 20%;
-    --input: 225 25% 15%;
+    --border: 0 0% 18%;
+    --input: 0 0% 12%;
     --ring: 0 100% 50%;
     --radius: 1rem;
 
@@ -76,7 +76,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: linear-gradient(180deg, hsl(222 47% 7%), hsl(222 47% 4%));
+    background: linear-gradient(180deg, hsl(0 0% 6%), hsl(0 0% 3%));
     min-height: 100vh;
   }
   
@@ -135,7 +135,7 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: hsl(225 25% 15%);
+    background: hsl(0 0% 12%);
   }
   
   ::-webkit-scrollbar-thumb {
