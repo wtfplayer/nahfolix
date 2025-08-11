@@ -3,20 +3,46 @@ import StatusBadge from '@/components/StatusBadge';
 import discordIcon from '@/assets/icons/discord.svg';
 import githubIcon from '@/assets/icons/github.svg';
 import robloxIcon from '@/assets/icons/roblox.svg';
+import { Eye } from 'lucide-react';
 
 const ProfileCard = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [views, setViews] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
+  // View counter: increments once per browser session and persists in localStorage
+  useEffect(() => {
+    try {
+      const STORAGE_KEY = 'site_view_count';
+      const SESSION_KEY = 'site_view_count_session_incremented';
+      const current = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+      setViews(current);
+      if (!sessionStorage.getItem(SESSION_KEY)) {
+        const next = current + 1;
+        localStorage.setItem(STORAGE_KEY, String(next));
+        sessionStorage.setItem(SESSION_KEY, '1');
+        setViews(next);
+      }
+    } catch (e) {
+      // no-op in restricted environments
+    }
+  }, []);
+
   return (
     <div className={`glass-card rounded-3xl p-8 max-w-md w-full text-center relative overflow-hidden transition-all duration-1000 ${
       isLoaded ? 'animate-fade-in opacity-100' : 'opacity-0'
     }`}>
-      
+
+      {/* Views Badge */}
+      <div className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-secondary/70 text-secondary-foreground border border-border px-2 py-1 backdrop-blur-sm">
+        <Eye className="h-4 w-4" aria-hidden="true" />
+        <span className="text-xs font-medium" aria-label="Views">{views.toLocaleString()}</span>
+      </div>
+
       {/* Profile Avatar */}
       <div className="relative mb-6">
         <div className="w-32 h-32 mx-auto relative">
