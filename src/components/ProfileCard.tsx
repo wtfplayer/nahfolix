@@ -19,8 +19,30 @@ const ProfileCard = () => {
     try {
       const STORAGE_KEY = 'site_view_count';
       const SESSION_KEY = 'site_view_count_session_incremented';
-      const current = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+      const BASELINE = 244;
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+
+      // Initialize to baseline and do not increment on the first session so it shows 244 now
+      if (!stored) {
+        localStorage.setItem(STORAGE_KEY, String(BASELINE));
+        sessionStorage.setItem(SESSION_KEY, '1');
+        setViews(BASELINE);
+        return;
+      }
+
+      const current = parseInt(stored, 10) || 0;
+
+      // If an older value exists below baseline, bump to baseline without incrementing this session
+      if (current < BASELINE) {
+        localStorage.setItem(STORAGE_KEY, String(BASELINE));
+        sessionStorage.setItem(SESSION_KEY, '1');
+        setViews(BASELINE);
+        return;
+      }
+
       setViews(current);
+
       if (!sessionStorage.getItem(SESSION_KEY)) {
         const next = current + 1;
         localStorage.setItem(STORAGE_KEY, String(next));
@@ -40,7 +62,7 @@ const ProfileCard = () => {
       {/* Views Badge */}
       <div className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-secondary/70 text-secondary-foreground border border-border px-2 py-1 backdrop-blur-sm">
         <Eye className="h-4 w-4" aria-hidden="true" />
-        <span className="text-xs font-medium" aria-label="Views">{views.toLocaleString()}</span>
+        <span className="text-xs font-medium" aria-label="Views">{views.toLocaleString()} views</span>
       </div>
 
       {/* Profile Avatar */}
