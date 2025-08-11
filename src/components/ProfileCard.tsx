@@ -19,30 +19,8 @@ const ProfileCard = () => {
     try {
       const STORAGE_KEY = 'site_view_count';
       const SESSION_KEY = 'site_view_count_session_incremented';
-      const BASELINE = 244;
-
-      const stored = localStorage.getItem(STORAGE_KEY);
-
-      // Initialize to baseline and do not increment on the first session so it shows 244 now
-      if (!stored) {
-        localStorage.setItem(STORAGE_KEY, String(BASELINE));
-        sessionStorage.setItem(SESSION_KEY, '1');
-        setViews(BASELINE);
-        return;
-      }
-
-      const current = parseInt(stored, 10) || 0;
-
-      // If an older value exists below baseline, bump to baseline without incrementing this session
-      if (current < BASELINE) {
-        localStorage.setItem(STORAGE_KEY, String(BASELINE));
-        sessionStorage.setItem(SESSION_KEY, '1');
-        setViews(BASELINE);
-        return;
-      }
-
+      const current = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
       setViews(current);
-
       if (!sessionStorage.getItem(SESSION_KEY)) {
         const next = current + 1;
         localStorage.setItem(STORAGE_KEY, String(next));
