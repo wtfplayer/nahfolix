@@ -14,22 +14,36 @@ const ProfileCard = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // View counter: increments once per browser session and persists in localStorage
+  // Global view counter: persists on a remote service and increments once per browser session
   useEffect(() => {
-    try {
-      const STORAGE_KEY = 'site_view_count';
-      const SESSION_KEY = 'site_view_count_session_incremented';
-      const current = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
-      setViews(current);
-      if (!sessionStorage.getItem(SESSION_KEY)) {
-        const next = current + 1;
-        localStorage.setItem(STORAGE_KEY, String(next));
-        sessionStorage.setItem(SESSION_KEY, '1');
-        setViews(next);
+    let cancelled = false;
+    const NAMESPACE = 'folix_site';
+    const KEY = 'page_views';
+    const SESSION_KEY = 'site_view_count_session_incremented_global';
+
+    const fetchCount = async () => {
+      try {
+        const alreadyIncremented = sessionStorage.getItem(SESSION_KEY);
+        const endpoint = alreadyIncremented
+          ? `https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`
+          : `https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`;
+
+        const res = await fetch(endpoint);
+        const data = await res.json();
+        if (!cancelled) {
+          const value = typeof data?.value === 'number' ? data.value : 0;
+          setViews(value);
+          if (!alreadyIncremented) sessionStorage.setItem(SESSION_KEY, '1');
+        }
+      } catch (e) {
+        // If the service is unavailable, keep local state at 0 silently
       }
-    } catch (e) {
-      // no-op in restricted environments
-    }
+    };
+
+    fetchCount();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
