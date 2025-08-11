@@ -62,7 +62,7 @@ const ProfileCard = () => {
       {/* Views Badge */}
       <div className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-secondary/70 text-secondary-foreground border border-border px-2 py-1 backdrop-blur-sm">
         <Eye className="h-4 w-4" aria-hidden="true" />
-        <span className="text-xs font-medium" aria-label="Views">{views.toLocaleString()} views</span>
+        <span className="text-xs font-medium" aria-label="Views">{views.toLocaleString()}</span>
       </div>
 
       {/* Profile Avatar */}
