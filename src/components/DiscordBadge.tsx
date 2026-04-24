@@ -5,7 +5,7 @@ const ICONS: Record<string, { Icon: React.ComponentType<{ className?: string }>;
   partner: { Icon: BadgeCheck, color: "text-[#5865F2]" },
   hypesquad: { Icon: Crown, color: "text-[#f8a532]" },
   bug_hunter_1: { Icon: Bug, color: "text-[#3ba55d]" },
-  bravery: { Icon: Star, color: "text-white" },
+  // bravery badge intentionally hidden
   brilliance: { Icon: Sparkles, color: "text-[#f47b67]" },
   balance: { Icon: Star, color: "text-[#45ddc0]" },
   early_supporter: { Icon: Heart, color: "text-[#ff73fa]" },
