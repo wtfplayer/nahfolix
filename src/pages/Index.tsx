@@ -137,12 +137,12 @@ const Index = () => {
   return (
     <>
       <StarsBackground />
-      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-10">
-        <article className="w-full max-w-2xl rounded-[28px] bg-surface-card/85 p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-1 ring-surface-border backdrop-blur-xl sm:p-8">
+      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
+        <article className="w-full max-w-xl rounded-3xl bg-surface-card/90 p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
           {/* Header */}
-          <header className="flex flex-col items-start gap-5 sm:flex-row">
+          <header className="flex flex-col items-start gap-4 sm:flex-row">
             <div className="relative shrink-0">
-              <div className="h-24 w-24 overflow-hidden rounded-2xl bg-surface-inner ring-1 ring-surface-border">
+              <div className="h-20 w-20 overflow-hidden rounded-2xl bg-surface-inner ring-1 ring-surface-border">
                 {avatar && (
                   <img
                     src={avatar}
@@ -153,7 +153,7 @@ const Index = () => {
                 )}
               </div>
               <span
-                className={`absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-[3px] border-surface-card ${
+                className={`absolute -bottom-1 -right-1 h-4 w-4 rounded-full border-[3px] border-surface-card ${
                   status === "online"
                     ? "bg-status-online"
                     : status === "idle"
@@ -167,17 +167,17 @@ const Index = () => {
             </div>
 
             <div className="min-w-0 flex-1">
-              <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+              <h1 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
                 {loading ? "loading…" : "nahfolix"}
               </h1>
-              <div className="mt-1 flex items-center gap-2 text-sm text-foreground/90">
+              <div className="mt-1 flex items-center gap-2 text-xs text-foreground/90">
                 <StatusDot status={status} />
                 <span className="font-medium">{statusLabel}</span>
               </div>
-              <p className="mt-2 text-sm text-foreground/80">fuck israel</p>
+              <p className="mt-1.5 text-xs text-foreground/80">fuck israel</p>
 
               {badges.length > 0 && (
-                <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                <div className="mt-2 flex flex-wrap items-center gap-1.5">
                   {badges.map((b) => (
                     <DiscordBadge key={b.key} badgeKey={b.key} label={b.label} />
                   ))}
