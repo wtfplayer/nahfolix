@@ -137,8 +137,8 @@ const Index = () => {
   return (
     <>
       <StarsBackground />
-      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-9">
-        <article className="w-full max-w-lg rounded-3xl bg-surface-card/90 p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
+      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
+        <article className="w-full max-w-xl rounded-3xl bg-surface-card/90 p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
           {/* Header */}
           <header className="flex flex-col items-start gap-4 sm:flex-row">
             <div className="relative shrink-0">
@@ -187,14 +187,14 @@ const Index = () => {
           </header>
 
           {/* Stats */}
-          <section className="mt-6 grid grid-cols-3 gap-3">
+          <section className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <StatCard label="Location" icon={MapPin} value="Maryland" />
             <StatCard label="Local Time" icon={Clock} value={localTime || "--:--"} />
             <StatCard label="Views" icon={Eye} value={views.toLocaleString()} />
           </section>
 
           {/* Social grid */}
-          <section className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <section className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <SocialButton
               icon={Github}
               label="GitHub"
