@@ -60,12 +60,12 @@ const StatCard = ({
   icon: React.ComponentType<{ className?: string }>;
   value: string;
 }) => (
-  <div className="rounded-2xl bg-surface-inner/70 p-4 ring-1 ring-surface-border">
+  <div className="rounded-2xl bg-surface-inner/70 p-3 ring-1 ring-surface-border">
     <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
       {label}
     </p>
-    <div className="mt-2 flex items-center gap-2 text-base font-semibold text-foreground">
-      <Icon className="h-4 w-4 text-muted-foreground" />
+    <div className="mt-1.5 flex items-center gap-2 text-sm font-semibold text-foreground">
+      <Icon className="h-3.5 w-3.5 text-muted-foreground" />
       <span>{value}</span>
     </div>
   </div>
@@ -187,14 +187,14 @@ const Index = () => {
           </header>
 
           {/* Stats */}
-          <section className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <section className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
             <StatCard label="Location" icon={MapPin} value="Maryland" />
             <StatCard label="Local Time" icon={Clock} value={localTime || "--:--"} />
             <StatCard label="Views" icon={Eye} value={views.toLocaleString()} />
           </section>
 
           {/* Social grid */}
-          <section className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <section className="mt-2.5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             <SocialButton
               icon={Github}
               label="GitHub"
@@ -223,7 +223,7 @@ const Index = () => {
           </section>
 
           {/* Spotify */}
-          <section className="mt-3">
+          <section className="mt-2.5">
             {data?.listening_to_spotify && data.spotify ? (
               <a
                 href={`https://open.spotify.com/track/${data.spotify.track_id}`}
