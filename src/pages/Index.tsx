@@ -168,13 +168,13 @@ const Index = () => {
 
             <div className="min-w-0 flex-1">
               <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                {loading ? "loading…" : "icegodftbl"}
+                {loading ? "loading…" : "nahfolix"}
               </h1>
               <div className="mt-1 flex items-center gap-2 text-sm text-foreground/90">
                 <StatusDot status={status} />
                 <span className="font-medium">{statusLabel}</span>
               </div>
-              <p className="mt-2 text-sm text-foreground/80">cr7 enjoyer</p>
+              <p className="mt-2 text-sm text-foreground/80">fuck israel</p>
 
               {badges.length > 0 && (
                 <div className="mt-3 flex flex-wrap items-center gap-1.5">
