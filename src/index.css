@@ -40,10 +40,10 @@
     --status-dnd: 0 84% 60%;
     --status-offline: 0 0% 45%;
 
-    /* Surface tokens — near-black like reference */
-    --surface-card: 0 0% 4%;
-    --surface-inner: 0 0% 6%;
-    --surface-border: 0 0% 10%;
+    /* Surface tokens — exact hex from user */
+    --surface-card: 240 14% 4%;      /* #070708 */
+    --surface-inner: 240 5% 6%;      /* #0F0F10 */
+    --surface-border: 0 0% 12%;
   }
 }
 
@@ -60,7 +60,7 @@
   }
 }
 
-/* Stars falling background — small white dots with thin trails on pure black */
+/* Stars falling background — plain white dots drifting down, no trail */
 @layer components {
   .stars-bg {
     position: fixed;
@@ -78,20 +78,10 @@
     background: white;
     border-radius: 50%;
     opacity: 0;
-    box-shadow: 0 0 4px hsl(0 0% 100% / 0.6);
+    box-shadow: 0 0 3px hsl(0 0% 100% / 0.5);
     animation-name: fall;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-  }
-  .star::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to top, hsl(0 0% 100% / 0.45), transparent);
-    transform: translateX(-50%);
   }
 }
 
