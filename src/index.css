@@ -40,10 +40,10 @@
     --status-dnd: 0 84% 60%;
     --status-offline: 0 0% 45%;
 
-    /* Surface tokens — exact hex from user */
-    --surface-card: 240 14% 4%;      /* #070708 */
-    --surface-inner: 240 5% 6%;      /* #0F0F10 */
-    --surface-border: 0 0% 12%;
+    /* Surface tokens — near-black like reference */
+    --surface-card: 0 0% 4%;
+    --surface-inner: 0 0% 6%;
+    --surface-border: 0 0% 10%;
   }
 }
 
