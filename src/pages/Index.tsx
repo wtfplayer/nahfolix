@@ -137,8 +137,8 @@ const Index = () => {
   return (
     <>
       <StarsBackground />
-      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-10">
-        <article className="w-full max-w-md rounded-3xl bg-surface-card/90 p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-7">
+      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-9">
+        <article className="w-full max-w-lg rounded-3xl bg-surface-card/90 p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
           {/* Header */}
           <header className="flex flex-col items-start gap-4 sm:flex-row">
             <div className="relative shrink-0">
