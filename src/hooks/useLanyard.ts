@@ -37,7 +37,28 @@ export function useLanyard(userId: string) {
   useEffect(() => {
     let socket: WebSocket | null = null;
     let heartbeat: ReturnType<typeof setInterval> | null = null;
+    let pollId: ReturnType<typeof setInterval> | null = null;
     let cancelled = false;
+
+    // REST fallback — works even if user isn't in the Lanyard Discord server
+    const fetchRest = async () => {
+      try {
+        const res = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
+        const json = await res.json();
+        if (json?.success && json?.data && !cancelled) {
+          setData(json.data);
+          setLoading(false);
+        } else if (!cancelled) {
+          // Even on failure, mark as loaded so UI shows offline state
+          setLoading(false);
+        }
+      } catch {
+        if (!cancelled) setLoading(false);
+      }
+    };
+
+    fetchRest();
+    pollId = setInterval(fetchRest, 15000);
 
     const connect = () => {
       socket = new WebSocket("wss://api.lanyard.rest/socket");
@@ -76,6 +97,7 @@ export function useLanyard(userId: string) {
     return () => {
       cancelled = true;
       if (heartbeat) clearInterval(heartbeat);
+      if (pollId) clearInterval(pollId);
       socket?.close();
     };
   }, [userId]);

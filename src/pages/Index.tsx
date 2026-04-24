@@ -174,7 +174,6 @@ const Index = () => {
                 <StatusDot status={status} />
                 <span className="font-medium">{statusLabel}</span>
               </div>
-              <p className="mt-1 text-sm text-muted-foreground">lua</p>
               <p className="mt-2 text-sm text-foreground/80">cr7 enjoyer</p>
 
               {badges.length > 0 && (
@@ -212,13 +211,13 @@ const Index = () => {
             <SocialButton
               icon={Gamepad2}
               label="Roblox"
-              sub="ejdhdh931"
+              sub="zxfolix"
               href="https://www.roblox.com/users/3784100047/profile"
             />
             <SocialButton
               icon={MessageCircle}
               label="Discord"
-              sub={username}
+              sub="nahfolix"
               href={`https://discord.com/users/${DISCORD_ID}`}
             />
           </section>
