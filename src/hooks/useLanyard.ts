@@ -130,7 +130,7 @@ export function useDiscordBadges(publicFlags: number | undefined) {
       { bit: 1 << 1, key: "partner", label: "Partner" },
       { bit: 1 << 2, key: "hypesquad", label: "HypeSquad Events" },
       { bit: 1 << 3, key: "bug_hunter_1", label: "Bug Hunter" },
-      { bit: 1 << 6, key: "bravery", label: "HypeSquad Bravery" },
+      // bravery hidden by request
       { bit: 1 << 7, key: "brilliance", label: "HypeSquad Brilliance" },
       { bit: 1 << 8, key: "balance", label: "HypeSquad Balance" },
       { bit: 1 << 9, key: "early_supporter", label: "Early Supporter" },

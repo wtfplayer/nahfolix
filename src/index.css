@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 2%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 7%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 5%;
 
-    --secondary: 0 0% 11%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 55%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 42%;
 
-    --accent: 0 0% 13%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 0 0% 98%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 0 0% 96%;
 
     --radius: 1rem;
 
@@ -40,10 +40,10 @@
     --status-dnd: 0 84% 60%;
     --status-offline: 0 0% 45%;
 
-    /* Surface tokens */
-    --surface-card: 0 0% 6%;
-    --surface-inner: 0 0% 9%;
-    --surface-border: 0 0% 13%;
+    /* Surface tokens — near-black like reference */
+    --surface-card: 0 0% 4%;
+    --surface-inner: 0 0% 6%;
+    --surface-border: 0 0% 10%;
   }
 }
 
@@ -60,7 +60,7 @@
   }
 }
 
-/* Stars falling background */
+/* Stars falling background — small white dots with thin trails on pure black */
 @layer components {
   .stars-bg {
     position: fixed;
@@ -68,7 +68,7 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
-    background: radial-gradient(ellipse at top, hsl(0 0% 6%) 0%, hsl(0 0% 3%) 100%);
+    background: #000;
   }
   .star {
     position: absolute;
@@ -78,6 +78,7 @@
     background: white;
     border-radius: 50%;
     opacity: 0;
+    box-shadow: 0 0 4px hsl(0 0% 100% / 0.6);
     animation-name: fall;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -85,11 +86,11 @@
   .star::after {
     content: '';
     position: absolute;
-    top: -40px;
+    top: -60px;
     left: 50%;
     width: 1px;
-    height: 40px;
-    background: linear-gradient(to top, hsl(0 0% 100% / 0.6), transparent);
+    height: 60px;
+    background: linear-gradient(to top, hsl(0 0% 100% / 0.45), transparent);
     transform: translateX(-50%);
   }
 }
