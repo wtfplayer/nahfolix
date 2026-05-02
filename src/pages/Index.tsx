@@ -26,9 +26,9 @@ const useLocalTime = (timeZone: string) => {
     const update = () => {
       setTime(
         new Intl.DateTimeFormat("en-US", {
-          hour: "2-digit",
+          hour: "numeric",
           minute: "2-digit",
-          hour12: false,
+          hour12: true,
           timeZone,
         }).format(new Date())
       );

@@ -7,14 +7,18 @@ interface StarsBackgroundProps {
 export const StarsBackground = ({ count = 80 }: StarsBackgroundProps) => {
   const stars = useMemo(
     () =>
-      Array.from({ length: count }, (_, i) => ({
-        id: i,
-        left: Math.random() * 100,
-        duration: 4 + Math.random() * 8,
-        delay: Math.random() * 10,
-        size: Math.random() < 0.7 ? 1.5 : 2.5,
-        opacity: 0.4 + Math.random() * 0.6,
-      })),
+      Array.from({ length: count }, (_, i) => {
+        const duration = 4 + Math.random() * 8;
+        return {
+          id: i,
+          left: Math.random() * 100,
+          duration,
+          // Negative delay so animations are mid-flight on mount
+          delay: -Math.random() * duration,
+          size: Math.random() < 0.7 ? 1.5 : 2.5,
+          opacity: 0.4 + Math.random() * 0.6,
+        };
+      }),
     [count]
   );
 
