@@ -137,6 +137,7 @@ const Index = () => {
 
   return (
     <>
+      <VideoBackground />
       <StarsBackground />
       <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
         <article className="w-full max-w-xl rounded-3xl bg-surface-card/40 p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
