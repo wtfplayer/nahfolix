@@ -2,48 +2,43 @@ import { useEffect, useRef } from "react";
 
 const VIDEO_URL =
   "https://res.cloudinary.com/ducdtedgp/video/upload/Ghost_of_Tsushima_DC_2024.05.18-17.09_d3mxxt.mp4";
+const AUDIO_URL = "/bg-music.mp3";
 
 export const VideoBackground = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    const audio = audioRef.current;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+    if (!audio) return;
+    audio.volume = 0.6;
+    audio.loop = true;
 
-    // Try to autoplay with sound first; browsers usually block this.
-    const tryUnmuted = async () => {
+    const tryPlay = async () => {
       try {
-        video.muted = false;
-        video.volume = 1;
-        await video.play();
+        await audio.play();
       } catch {
-        // Fallback: muted autoplay so the visual still runs.
-        video.muted = true;
-        try {
-          await video.play();
-        } catch {
-          /* ignore */
-        }
-        // Unmute on the first user interaction.
-        const unmute = async () => {
+        const start = async () => {
           try {
-            video.muted = false;
-            video.volume = 1;
-            await video.play();
+            await audio.play();
           } catch {
             /* ignore */
           }
-          window.removeEventListener("pointerdown", unmute);
-          window.removeEventListener("keydown", unmute);
-          window.removeEventListener("touchstart", unmute);
+          window.removeEventListener("pointerdown", start);
+          window.removeEventListener("keydown", start);
+          window.removeEventListener("touchstart", start);
         };
-        window.addEventListener("pointerdown", unmute, { once: true });
-        window.addEventListener("keydown", unmute, { once: true });
-        window.addEventListener("touchstart", unmute, { once: true });
+        window.addEventListener("pointerdown", start, { once: true });
+        window.addEventListener("keydown", start, { once: true });
+        window.addEventListener("touchstart", start, { once: true });
       }
     };
-
-    tryUnmuted();
+    tryPlay();
   }, []);
 
   return (
@@ -53,9 +48,11 @@ export const VideoBackground = () => {
         src={VIDEO_URL}
         autoPlay
         loop
+        muted
         playsInline
         preload="auto"
       />
+      <audio ref={audioRef} src={AUDIO_URL} loop preload="auto" />
       <div className="video-bg-overlay" />
     </div>
   );
