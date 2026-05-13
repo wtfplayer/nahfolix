@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MapPin, Clock, Eye, Github, ExternalLink, Disc3, MessageCircle, Gamepad2, Copy, Check } from "lucide-react";
 import { useLanyard, getAvatarUrl, useDiscordBadges, STATUS_LABEL } from "@/hooks/useLanyard";
 import { StarsBackground } from "@/components/StarsBackground";
+import { VideoBackground } from "@/components/VideoBackground";
 import { DiscordBadge } from "@/components/DiscordBadge";
 import { toast } from "sonner";
 
@@ -60,7 +61,7 @@ const StatCard = ({
   icon: React.ComponentType<{ className?: string }>;
   value: string;
 }) => (
-  <div className="rounded-2xl bg-surface-inner/70 p-4 ring-1 ring-surface-border">
+  <div className="rounded-2xl bg-surface-inner/30 p-4 ring-1 ring-surface-border">
     <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
       {label}
     </p>
@@ -85,7 +86,7 @@ const SocialButton = ({ icon: Icon, label, sub, onClick, href, trailing = "exter
     trailing === "copied" ? Check : trailing === "copy" ? Copy : ExternalLink;
   const content = (
     <>
-      <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-background/60 ring-1 ring-surface-border">
+      <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-background/30 ring-1 ring-surface-border">
         <Icon className="h-4 w-4 text-foreground" />
       </div>
       <div className="min-w-0 flex-1 text-left">
@@ -96,7 +97,7 @@ const SocialButton = ({ icon: Icon, label, sub, onClick, href, trailing = "exter
     </>
   );
   const className =
-    "group flex w-full items-center gap-3 rounded-2xl bg-surface-inner/70 p-3 ring-1 ring-surface-border transition-all hover:bg-surface-inner hover:ring-foreground/20";
+    "group flex w-full items-center gap-3 rounded-2xl bg-surface-inner/30 p-3 ring-1 ring-surface-border transition-all hover:bg-surface-inner/50 hover:ring-foreground/20";
   if (href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
@@ -136,9 +137,10 @@ const Index = () => {
 
   return (
     <>
+      <VideoBackground />
       <StarsBackground />
       <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
-        <article className="w-full max-w-xl rounded-3xl bg-surface-card/90 p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
+        <article className="w-full max-w-xl rounded-3xl bg-surface-card/40 p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
           {/* Header */}
           <header className="flex flex-col items-start gap-4 sm:flex-row">
             <div className="relative shrink-0">
@@ -229,7 +231,7 @@ const Index = () => {
                 href={`https://open.spotify.com/track/${data.spotify.track_id}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-2xl bg-surface-inner/70 p-3 ring-1 ring-surface-border transition-all hover:ring-[#1DB954]/40"
+                className="group flex items-center gap-3 rounded-2xl bg-surface-inner/30 p-3 ring-1 ring-surface-border transition-all hover:ring-[#1DB954]/40"
               >
                 <img
                   src={data.spotify.album_art_url}
@@ -249,8 +251,8 @@ const Index = () => {
                 </div>
               </a>
             ) : (
-              <div className="flex items-center gap-3 rounded-2xl bg-surface-inner/70 p-3 ring-1 ring-surface-border">
-                <div className="grid h-12 w-12 place-items-center rounded-lg bg-background/60 ring-1 ring-surface-border">
+              <div className="flex items-center gap-3 rounded-2xl bg-surface-inner/30 p-3 ring-1 ring-surface-border">
+                <div className="grid h-12 w-12 place-items-center rounded-lg bg-background/30 ring-1 ring-surface-border">
                   <Disc3 className="h-5 w-5 text-muted-foreground" />
                 </div>
                 <div className="min-w-0 flex-1">
