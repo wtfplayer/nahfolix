@@ -3,6 +3,7 @@ import { MapPin, Clock, Eye, Github, ExternalLink, Disc3, MessageCircle, Gamepad
 import { useLanyard, getAvatarUrl, useDiscordBadges, STATUS_LABEL } from "@/hooks/useLanyard";
 import { StarsBackground } from "@/components/StarsBackground";
 import { VideoBackground } from "@/components/VideoBackground";
+import { EnterOverlay } from "@/components/EnterOverlay";
 import { DiscordBadge } from "@/components/DiscordBadge";
 import { toast } from "sonner";
 
@@ -137,6 +138,7 @@ const Index = () => {
 
   return (
     <>
+      <EnterOverlay />
       <VideoBackground />
       <StarsBackground />
       <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
