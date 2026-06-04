@@ -118,23 +118,10 @@ const Index = () => {
   const localTime = useLocalTime("America/New_York");
   const views = useViews();
   const badges = useDiscordBadges(data?.discord_user.public_flags);
-  const [copied, setCopied] = useState(false);
-
   const status = data?.discord_status ?? "offline";
   const statusLabel = STATUS_LABEL[status as keyof typeof STATUS_LABEL] ?? "Offline";
   const avatar = data ? getAvatarUrl(data.discord_user, 256) : "";
   const username = data?.discord_user.username ?? "icegodftbl";
-
-  const handleCopyValorant = async () => {
-    try {
-      await navigator.clipboard.writeText("folix#envy");
-      setCopied(true);
-      toast.success("Copied folix#envy to clipboard");
-      setTimeout(() => setCopied(false), 1800);
-    } catch {
-      toast.error("Couldn't copy to clipboard");
-    }
-  };
 
   return (
     <>
@@ -205,11 +192,9 @@ const Index = () => {
               href="https://github.com/wtfplayer"
             />
             <SocialButton
-              icon={Gamepad2}
-              label="Valorant"
-              sub="folix#envy"
-              onClick={handleCopyValorant}
-              trailing={copied ? "copied" : "copy"}
+              icon={ExternalLink}
+              label="Project"
+              sub="luafly"
             />
             <SocialButton
               icon={Gamepad2}
