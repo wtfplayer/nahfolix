@@ -192,11 +192,9 @@ const Index = () => {
               href="https://github.com/wtfplayer"
             />
             <SocialButton
-              icon={Gamepad2}
-              label="Valorant"
-              sub="folix#envy"
-              onClick={handleCopyValorant}
-              trailing={copied ? "copied" : "copy"}
+              icon={ExternalLink}
+              label="Project"
+              sub="luafly"
             />
             <SocialButton
               icon={Gamepad2}
