@@ -195,6 +195,7 @@ const Index = () => {
               icon={ExternalLink}
               label="Project"
               sub="luafly"
+              href="https://luafly.is-local.org"
             />
             <SocialButton
               icon={Gamepad2}
