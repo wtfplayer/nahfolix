@@ -191,7 +191,7 @@ const Index = () => {
 
           {/* Stats */}
           <section className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <StatCard label="Location" icon={MapPin} value="Maryland" />
+            <StatCard label="Location" icon={MapPin} value="Vermont" />
             <StatCard label="Local Time" icon={Clock} value={localTime || "--:--"} />
             <StatCard label="Views" icon={Eye} value={views.toLocaleString()} />
           </section>
