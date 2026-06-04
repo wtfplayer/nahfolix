@@ -136,6 +136,17 @@ const Index = () => {
     }
   };
 
+  const handleCopyRoblox = async () => {
+    try {
+      await navigator.clipboard.writeText("zxfolix");
+      setCopied(true);
+      toast.success("Copied zxfolix to clipboard");
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      toast.error("Couldn't copy to clipboard");
+    }
+  };
+
   return (
     <>
       <EnterOverlay />
