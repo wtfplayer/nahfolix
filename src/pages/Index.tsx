@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { MapPin, Clock, Eye, Github, ExternalLink, Disc3, MessageCircle, Gamepad2, Copy, Check } from "lucide-react";
 import { useLanyard, getAvatarUrl, useDiscordBadges, STATUS_LABEL } from "@/hooks/useLanyard";
 
-import { VideoBackground } from "@/components/VideoBackground";
-import { EnterOverlay } from "@/components/EnterOverlay";
+import { StarsBackground } from "@/components/StarsBackground";
 import { DiscordBadge } from "@/components/DiscordBadge";
 import { toast } from "sonner";
 
@@ -125,10 +124,9 @@ const Index = () => {
 
   return (
     <>
-      <EnterOverlay />
-      <VideoBackground />
+      <StarsBackground />
       <main className="relative z-10 flex min-h-screen items-center justify-center px-4 py-8">
-        <article className="w-full max-w-xl rounded-3xl bg-surface-card/25 p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border backdrop-blur-xl sm:p-6">
+        <article className="w-full max-w-xl rounded-3xl bg-surface-card p-5 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-surface-border sm:p-6">
           {/* Header */}
           <header className="flex flex-col items-start gap-4 sm:flex-row">
             <div className="relative shrink-0">
