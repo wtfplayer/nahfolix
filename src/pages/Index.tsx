@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { MapPin, Clock, Eye, Github, ExternalLink, Disc3, MessageCircle, Gamepad2, Copy, Check } from "lucide-react";
 import { useLanyard, getAvatarUrl, useDiscordBadges, STATUS_LABEL } from "@/hooks/useLanyard";
 
-import { VideoBackground } from "@/components/VideoBackground";
-import { EnterOverlay } from "@/components/EnterOverlay";
+import { StarsBackground } from "@/components/StarsBackground";
 import { DiscordBadge } from "@/components/DiscordBadge";
 import { toast } from "sonner";
 
